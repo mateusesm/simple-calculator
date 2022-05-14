@@ -4,48 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/calc.css">
-    <script src="js/calc.js"></script>
     <title>Calculadora Online</title>
 </head>
 <body>
     <main>
-        <div id="calc">
             <form name="calc">
 
-                <div>
-                    <input type="text" name="visor" id="visor">
-                </div>
+                <div id="calc">
 
-                <div id="primeira">
-                    <input type="button" value="7" class="botao-calc" onclick="botao(value)">
-                    <input type="button" value="8" class="botao-calc" onclick="botao(value)">
-                    <input type="button" value="9" class="botao-calc" onclick="botao(value)">
-                    <input type="button" value="/" class="botao-calc" onclick="botao(value)">
-                </div>
+                    <div>
+                        <input type="text" name="visor" id="visor">
+                    </div>
 
-                <div id="segunda">
-                    <input type="button" value="4" class="botao-calc" onclick="botao(value)">
-                    <input type="button" value="5" class="botao-calc" onclick="botao(value)">
-                    <input type="button" value="6" class="botao-calc" onclick="botao(value)">
-                    <input type="button" value="*" class="botao-calc" onclick="botao(value)">
-                </div>
+                    <div id="primeira">
+                        <input type="button" value="7" class="botao-calc" onclick="botao(value)">
+                        <input type="button" value="8" class="botao-calc" onclick="botao(value)">
+                        <input type="button" value="9" class="botao-calc" onclick="botao(value)">
+                        <input type="button" value="/" class="botao-calc" onclick="botao(value)">
+                    </div>
 
-                <div id="terceira">
-                    <input type="button" value="1" class="botao-calc" onclick="botao(value)">
-                    <input type="button" value="2" class="botao-calc" onclick="botao(value)">
-                    <input type="button" value="3" class="botao-calc" onclick="botao(value)">
-                    <input type="button" value="-" class="botao-calc" onclick="botao(value)">
-                </div>
+                    <div id="segunda">
+                        <input type="button" value="4" class="botao-calc" onclick="botao(value)">
+                        <input type="button" value="5" class="botao-calc" onclick="botao(value)">
+                        <input type="button" value="6" class="botao-calc" onclick="botao(value)">
+                        <input type="button" value="*" class="botao-calc" onclick="botao(value)">
+                    </div>
 
-                <div id="quarta">
-                    <input type="button" value="C" class="botao-calc" onclick="apagar()">
-                    <input type="button" value="0" class="botao-calc" onclick="botao(value)">
-                    <input type="button" value="=" class="botao-calc" onclick="igual()">
-                    <input type="button" value="+" class="botao-calc" onclick="botao(value)">
+                    <div id="terceira">
+                        <input type="button" value="1" class="botao-calc" onclick="botao(value)">
+                        <input type="button" value="2" class="botao-calc" onclick="botao(value)">
+                        <input type="button" value="3" class="botao-calc" onclick="botao(value)">
+                        <input type="button" value="-" class="botao-calc" onclick="botao(value)">
+                    </div>
+
+                    <div id="quarta">
+                        <input type="button" value="C" class="botao-apagar" onclick="apagar()">
+                        <input type="button" value="0" class="botao-calc" onclick="botao(value)">
+                        <input type="button" value="=" class="botao-igual" onclick="igual()">
+                        <input type="button" value="+" class="botao-calc" onclick="botao(value)">
+                    </div>
+
                 </div>
                 
             </form>
-        </div>
     </main>
+
+    <script src="js/calc.js"></script>
 </body>
 </html>

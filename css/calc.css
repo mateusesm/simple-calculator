@@ -2,68 +2,91 @@
     padding: 0;
     margin: 0;
     outline: none;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 500;
-    font-size: 15pt;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18pt;
 }
+
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     background: #8a2be2;
+   
 }
+
 form {
-    border-radius: 15px;
-    box-shadow: 10px 5px #808080;
+
+    position: absolute;
+    max-width: 300px;
+    width: 100%;
+    padding: 25px;
+    border-radius: 10px;
     background: #260544;
-    padding: 50px;
-    padding-left: 12px;
-    border-radius: 70px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+form > div#calc > div > input[type="text"] {
   
-}
-input {
-    margin: 5px;
-    border-radius: 15px;
-}
-input[type=text] {
-    position: relative;
-    left: 18px;
-    width: 98%;
-    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    padding: 1.4%;
     text-align: right;
-}
-input[type=button] {
-    position: relative;
-    left: 25px;
-    width: 80px;
-    height: 60px;
-    box-shadow: 2px 5px #808080;
-    background: #c9bebe;
 
 }
 
-div#calc div {
-    display: flex;
-    width: 350px;
+form > div#calc > div > input[type="button"] {
+
+    margin: 5px;
+    margin-top: 15px;
+    padding: 10px;
+    width: 20%;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+
 }
 
 div#primeira input:nth-child(4) {
     background: #008080;
 }
+
+div#primeira input:nth-child(4):hover {
+    background: #03a7a7;
+}
+
 div#segunda input:nth-child(4) {
     background: #a710bb;
 }
+div#segunda input:nth-child(4):hover {
+    background: #ca14e2;
+}
+
 div#terceira input:nth-child(4) {
     background: #73c508;
 }
-div#quarta input:nth-child(4) {
-    background: #9c3939;
+div#terceira input:nth-child(4):hover {
+    background: #86e40a;
 }
+
+div#quarta input:nth-child(4) {
+    background: #a12b2b;
+}
+div#quarta input:nth-child(4):hover {
+    background: #c73636;
+}
+
 div#quarta input:nth-child(1) {
     background: #231e24;
     color: #ffffff;
 }
+div#quarta input:nth-child(1):hover {
+    background: #2e2730;
+}
+
 div#quarta input:nth-child(3) {
     background: #ffffff;
+}
+div#quarta input:nth-child(3):hover {
+    background: rgb(231, 219, 219);
 }
