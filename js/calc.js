@@ -1,14 +1,66 @@
-var valor
-var resultado
-function botao (num) {
-    valor = document.calc.visor.value += num
+var visor = document.querySelector('#visor')
+
+var sinal = ''
+
+var numero1 = 0
+
+var numero2 = 0
+
+function getOperador(operador) {
+
+    sinal = operador
+
+    numero1 = Number(visor.value)
+
+    visor.value = ''
+
+}
+
+function botao(num) {
+
+    if (visor.value == 0) {
+
+        visor.value = ''
+
+    }
+    
+    visor.value += num
+
 }
 
 function apagar() {
-    document.calc.visor.value = ''
+
+    visor.value = 0
+
 }
 
+
 function igual() {
-    resultado = eval(valor)
-    document.calc.visor.value = resultado
+
+    numero2 = Number(visor.value)
+
+    let resultado = ''
+
+    if (sinal == '/') {
+
+        resultado = numero1 / numero2
+
+    } else if (sinal == 'x') {
+
+        resultado = numero1 * numero2
+
+    } else if (sinal == '-') {
+
+        resultado = numero1 - numero2
+
+    } else if (sinal == '+') {
+
+        resultado = numero1 + numero2
+
+    }
+
+    visor.value = resultado
+
+    sinal = ''
+
 }

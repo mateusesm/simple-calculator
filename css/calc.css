@@ -24,7 +24,7 @@ form {
     transform: translate(-50%, -50%);
 }
 
-form > div#calc > div > input[type="text"] {
+form > div#calc > div > input[type="number"] {
   
     margin-top: 10px;
     margin-bottom: 10px;
