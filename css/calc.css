@@ -24,15 +24,21 @@ form {
     transform: translate(-50%, -50%);
 }
 
+form > div#calc {
+
+    width: 300px;
+
+}
+
 form > div#calc > div > input[type="text"] {
   
+    width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
     border: none;
     padding: 1.6%;
     text-align: right;
-    width: 98%;
 
 }
 
