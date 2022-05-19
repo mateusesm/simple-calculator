@@ -24,17 +24,10 @@ form {
     transform: translate(-50%, -50%);
 }
 
-form > div#calc {
-
-    max-width: 300px;
-    width: 100%;
-
-}
-
 form > div#calc > div#visor-calc > input[type="text"] {
  
     max-width: 300px;
-    width: 100%;
+    width: 98%;
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
