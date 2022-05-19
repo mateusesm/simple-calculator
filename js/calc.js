@@ -1,47 +1,54 @@
-var visor = document.querySelector('#visor')
+const visor = document.querySelector('#visor')
 
 var sinal = ''
 
-var numero1 = 0
+var numeros = []
 
-var numero2 = 0
+function getOperator(operator) {
 
-function getOperador(operador) {
+    sinal = operator
 
-    sinal = operador
+    let numeroDigitado = Number(visor.value)
 
-    numero1 = Number(visor.value)
+    numeros.push(numeroDigitado)
 
     visor.value = ''
 
 }
 
-function botao(num) {
+function getNumber(num) {
 
-    if (visor.value == 0) {
+    if (visor.value == 0 && num != 0 ) {
 
-        visor.value = ''
+        let nNotZero = visor.value.replace('0', '')
+
+        visor.value = nNotZero
 
     }
-    
-    visor.value += num
+
+    visor.value += num   
+  
 
 }
 
-function apagar() {
+function deleteNumber() {
 
     visor.value = 0
+    sinal = ''
+    numeros = [0]
 
 }
 
 
-function igual() {
+function calcNumber() {
 
-    numero2 = Number(visor.value)
+    let resultado = 0
 
-    let resultado = ''
+    let segundoNumero = Number(visor.value)
 
-    if (sinal == '/') {
+    numeros.push(segundoNumero)
+
+    /*if (sinal == '/') {
 
         resultado = numero1 / numero2
 
@@ -53,14 +60,19 @@ function igual() {
 
         resultado = numero1 - numero2
 
-    } else if (sinal == '+') {
+    } else*/ if (sinal == '+') {
 
-        resultado = numero1 + numero2
+        for (let c = 0; c < numeros.length; c++) {
 
+            resultado += numeros[c]
+
+        }
     }
 
-    visor.value = resultado
+    visor.value = Number(resultado)
 
     sinal = ''
+
+    numeros = [0]
 
 }

@@ -24,7 +24,7 @@ form {
     transform: translate(-50%, -50%);
 }
 
-form > div#calc > div > input[type="number"] {
+form > div#calc > div > input[type="text"] {
   
     margin-top: 10px;
     margin-bottom: 10px;
@@ -84,9 +84,9 @@ div#quarta input:nth-child(1):hover {
     background: #2e2730;
 }
 
-div#quarta input:nth-child(3) {
+div#quarta input:nth-child(5) {
     background: #ffffff;
 }
-div#quarta input:nth-child(3):hover {
+div#quarta input:nth-child(5):hover {
     background: rgb(231, 219, 219);
 }
