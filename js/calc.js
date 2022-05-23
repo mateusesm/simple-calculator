@@ -1,16 +1,24 @@
 const visor = document.querySelector('#visor')
 
-var sinal = ''
+let numeros = []
 
-var numeros = []
+let numeros1 = []
+
+let numeros2 = []
+
+let sinal = ''
 
 function getOperator(operator) {
 
     sinal = operator
 
-    let numeroDigitado = Number(visor.value)
+    numeros = []
 
-    numeros.push(numeroDigitado)
+    numeros1.push(Number(visor.value))
+
+    console.log(sinal)
+
+    console.log(numeros1)
 
     visor.value = ''
 
@@ -18,16 +26,20 @@ function getOperator(operator) {
 
 function getNumber(num) {
 
-    if (visor.value == 0 && num != 0 ) {
+    numeros.push(Number(num))
 
-        let nNotZero = visor.value.replace('0', '')
+    if (numeros.lastIndexOf(num)) {
 
-        visor.value = nNotZero
+        if (numeros.lastIndexOf(0) == -1 && visor.value == 0) {
+
+            visor.value = ''
+
+        }
+        
+        visor.value += num
+        console.log(numeros)
 
     }
-
-    visor.value += num   
-  
 
 }
 
@@ -35,18 +47,31 @@ function deleteNumber() {
 
     visor.value = 0
     sinal = ''
-    numeros = [0]
+    numeros = []
 
 }
-
 
 function calcNumber() {
 
     let resultado = 0
 
-    let segundoNumero = Number(visor.value)
+    let resParcial = 0
 
-    numeros.push(segundoNumero)
+    numeros = []
+
+    numeros2.push(Number(visor.value))
+
+    console.log('-----------------')
+    console.log(numeros1)
+    console.log('-----------------')
+
+    console.log(sinal)
+
+    console.log('-----------------')
+    console.log(numeros2)
+    console.log('-----------------')
+
+    
 
     /*if (sinal == '/') {
 
@@ -56,23 +81,26 @@ function calcNumber() {
 
         resultado = numero1 * numero2
 
-    } else if (sinal == '-') {
+    } else*/ /*if (sinal == '-') {
 
-        resultado = numero1 - numero2
+        resParcial += numeros1[c]
 
     } else*/ if (sinal == '+') {
 
-        for (let c = 0; c < numeros.length; c++) {
+        for (let c = 0; c < numeros1.length; c++) {
 
-            resultado += numeros[c]
+            resParcial += numeros1[c]
 
         }
+
+        resultado = resParcial + numeros2[0]
     }
 
     visor.value = Number(resultado)
 
-    sinal = ''
+    numeros1 = []
+    numeros2 = []
 
-    numeros = [0]
+    sinal = ''
 
 }
