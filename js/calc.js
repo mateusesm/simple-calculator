@@ -1,43 +1,90 @@
 const visor = document.querySelector('#visor')
 
-let numeros = []
+let numerosVisor = []
 
-let numeros1 = []
-
-let numeros2 = []
+let numeroCalc = 0
 
 let sinal = ''
+
+let resultadoFinal = 0
+
+function calcular(n1, n2) {
+
+    let resultado = 0
+
+    if (sinal != '') {
+   
+        if (sinal == '/') {
+        
+            resultado = n1 / n2
+
+        } else if (sinal == 'x') {
+
+            resultado = n1 * n2
+
+        } else if (sinal == '-') {
+
+            resultado = n1 - n2
+
+        } else if (sinal == '+') {
+
+            resultado = n1 + n2
+
+        }
+
+    }
+
+    return resultado
+
+}
 
 function getOperator(operator) {
 
     sinal = operator
 
-    numeros = []
+    numerosVisor = []
 
-    numeros1.push(Number(visor.value))
+    numeroCalc = Number(visor.value)
 
-    console.log(sinal)
+    resultadoFinal = calcular(numeroCalc, resultadoFinal)
 
-    console.log(numeros1)
+    console.log(`numeroCalc: ${numeroCalc}`)
+
+    console.log(`${sinal}`)
+
+    console.log(`resultadoFinal: ${resultadoFinal}`)
 
     visor.value = ''
+
+    numeroCalc = 0
 
 }
 
 function getNumber(num) {
 
-    numeros.push(Number(num))
+    numerosVisor.push(Number(num))
 
-    if (numeros.lastIndexOf(num)) {
+    if (numerosVisor.lastIndexOf(num)) {
 
-        if (numeros.lastIndexOf(0) == -1 && visor.value == 0) {
+        if (numerosVisor.lastIndexOf(0) == -1 && visor.value == 0) {
 
             visor.value = ''
 
         }
         
         visor.value += num
-        console.log(numeros)
+
+        numeroCalc = Number(visor.value)
+
+        resultadoFinal = calcular(numeroCalc, resultadoFinal)
+
+        console.log(`numerosVisor: ${numerosVisor}`)
+
+        console.log(`numeroCalc: ${numeroCalc}`)
+
+        console.log(`${sinal}`)
+
+        console.log(`resultadoFinal: ${resultadoFinal}`)
 
     }
 
@@ -47,59 +94,20 @@ function deleteNumber() {
 
     visor.value = 0
     sinal = ''
-    numeros = []
+    numerosVisor = []
+    resultadoFinal = 0
 
 }
 
 function calcNumber() {
 
-    let resultado = 0
-
-    let resParcial = 0
-
-    numeros = []
-
-    numeros2.push(Number(visor.value))
+    visor.value = Number(resultadoFinal)
+    console.log(`O resultado é: ${resultadoFinal}`)
 
     console.log('-----------------')
-    console.log(numeros1)
-    console.log('-----------------')
 
-    console.log(sinal)
-
-    console.log('-----------------')
-    console.log(numeros2)
-    console.log('-----------------')
-
-    
-
-    /*if (sinal == '/') {
-
-        resultado = numero1 / numero2
-
-    } else if (sinal == 'x') {
-
-        resultado = numero1 * numero2
-
-    } else*/ /*if (sinal == '-') {
-
-        resParcial += numeros1[c]
-
-    } else*/ if (sinal == '+') {
-
-        for (let c = 0; c < numeros1.length; c++) {
-
-            resParcial += numeros1[c]
-
-        }
-
-        resultado = resParcial + numeros2[0]
-    }
-
-    visor.value = Number(resultado)
-
-    numeros1 = []
-    numeros2 = []
+    numeroCalc = 0
+    resultadoFinal = 0
 
     sinal = ''
 
