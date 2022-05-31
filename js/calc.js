@@ -1,40 +1,41 @@
 const visor = document.querySelector('#visor')
 
-let numerosVisor = []
+let numbersVisor = []
 
-let numeroCalc = 0
+let numbersCalc = []
 
 let sinal = ''
 
-let resultadoFinal = 0
+let finalResult = 0
 
-function calcular(n1, n2) {
+let parcialResult = 0
 
-    let resultado = 0
+function calculate(num = []) {
+
+    let result = 0
 
     if (sinal != '') {
-   
-        if (sinal == '/') {
-        
-            resultado = n1 / n2
 
-        } else if (sinal == 'x') {
+        if (sinal == '+') {
 
-            resultado = n1 * n2
+            result = num[0] + num[1]
 
-        } else if (sinal == '-') {
+        }else if (sinal == '-') {
 
-            resultado = n1 - n2
+            result = num[0] - num[1]
 
-        } else if (sinal == '+') {
+        }else if (sinal == 'x') {
 
-            resultado = n1 + n2
+            result = num[0] * num[1]
 
+        }else if (sinal == '/') {
+
+            result = num[0] / num[1]
         }
 
     }
 
-    return resultado
+    return result
 
 }
 
@@ -42,73 +43,91 @@ function getOperator(operator) {
 
     sinal = operator
 
-    numerosVisor = []
+    if (parcialResult == '') {
 
-    numeroCalc = Number(visor.value)
+        numbersCalc.push(Number(visor.value))
 
-    resultadoFinal = calcular(numeroCalc, resultadoFinal)
+        console.log(numbersCalc)
 
-    console.log(`numeroCalc: ${numeroCalc}`)
+        visor.value = ''
 
-    console.log(`${sinal}`)
+    }else {
 
-    console.log(`resultadoFinal: ${resultadoFinal}`)
-
-    visor.value = ''
-
-    numeroCalc = 0
-
-}
-
-function getNumber(num) {
-
-    numerosVisor.push(Number(num))
-
-    if (numerosVisor.lastIndexOf(num)) {
-
-        if (numerosVisor.lastIndexOf(0) == -1 && visor.value == 0) {
-
-            visor.value = ''
-
-        }
-        
-        visor.value += num
-
-        numeroCalc = Number(visor.value)
-
-        resultadoFinal = calcular(numeroCalc, resultadoFinal)
-
-        console.log(`numerosVisor: ${numerosVisor}`)
-
-        console.log(`numeroCalc: ${numeroCalc}`)
-
-        console.log(`${sinal}`)
-
-        console.log(`resultadoFinal: ${resultadoFinal}`)
+        visor.value = ''
+        numbersCalc = []
 
     }
 
 }
 
+function getNumber(num) {
+
+    numbersVisor.push(Number(num))
+
+    if (numbersVisor.lastIndexOf(num)) {
+
+        visor.value += num
+
+    }
+
+    if (sinal != '') {
+
+        numbersCalc.push(Number(visor.value))
+
+        console.log(numbersCalc)
+
+        if (parcialResult == '') {
+
+            parcialResult = calculate(numbersCalc)
+
+            console.log(parcialResult)
+
+            numbersCalc = []
+        
+        }else {
+        
+            let lastNumber = numbersCalc.pop()
+        
+            numbersCalc = []
+        
+            numbersCalc.push(parcialResult)
+        
+            numbersCalc.push(lastNumber)
+        
+            parcialResult = calculate(numbersCalc)
+
+            console.log(parcialResult)
+
+            numbersCalc = []
+        
+        }
+   
+
+    }
+    
+}
+
 function deleteNumber() {
 
-    visor.value = 0
+    visor.value = ''
     sinal = ''
-    numerosVisor = []
-    resultadoFinal = 0
+    numbersVisor = []
+    numbersCalc = []
+    finalResult = 0
+    parcialResult = 0
 
 }
 
-function calcNumber() {
+function equality() {
 
-    visor.value = Number(resultadoFinal)
-    console.log(`O resultado é: ${resultadoFinal}`)
+    finalResult = parcialResult
 
-    console.log('-----------------')
+    visor.value = finalResult
 
-    numeroCalc = 0
-    resultadoFinal = 0
-
+    numbersVisor = []
+    numbersCalc = []
+    parcialResult = 0
+    finalResult = 0
     sinal = ''
 
 }

@@ -78,11 +78,11 @@ div#quarta input:nth-child(4):hover {
     background: #c73636;
 }
 
-div#quarta input:nth-child(5) {
+div#quarta input:nth-child(1) {
     background: #231e24;
     color: #ffffff;
 }
-div#quarta input:nth-child(5):hover {
+div#quarta input:nth-child(1):hover {
     background: #2e2730;
 }
 
