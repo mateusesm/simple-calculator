@@ -34,6 +34,7 @@ form > div#calc > div#visor-calc > input[type="text"] {
     border: none;
     padding: 1.6%;
     text-align: right;
+    color: rgb(240, 240, 240);
 
 }
 
