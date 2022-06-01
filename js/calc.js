@@ -56,7 +56,7 @@ function getOperator(operator) {
         
         parcialResult = calculate(numbersCalc)
 
-        visor.value = ''
+        visor.value = parcialResult
         numbersCalc = []
 
     }
@@ -65,8 +65,14 @@ function getOperator(operator) {
 
 function getNumber(num) {
 
-    visor.value += num
+   if (sinal != '' && visor.value != '' && parcialResult != '') {
 
+        visor.value = ''
+
+   }
+
+    visor.value += num
+    
 }
 
 function deleteNumber() {
