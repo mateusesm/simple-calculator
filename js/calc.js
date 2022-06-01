@@ -14,26 +14,29 @@ function calculate(num = []) {
 
     if (sinal != '') {
 
-        if (sinal == '+') {
+        switch (sinal) {
 
-            result = num[0] + num[1]
+            case '+':
+                result = num[0] + num[1]
+            break
 
-        }else if (sinal == '-') {
+            case '-':
+                result = num[0] - num[1]
+            break
 
-            result = num[0] - num[1]
+            case 'x':
+                result = num[0] * num[1]
+            break
 
-        }else if (sinal == 'x') {
+            case '/':
+                result = num[0] / num[1]
+            break
 
-            result = num[0] * num[1]
-
-        }else if (sinal == '/') {
-
-            result = num[0] / num[1]
         }
 
-    }
+        return result
 
-    return result
+    }
 
 }
 
