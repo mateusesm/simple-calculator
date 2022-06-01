@@ -1,14 +1,12 @@
 const visor = document.querySelector('#visor')
 
-let numbersVisor = []
-
 let numbersCalc = []
 
 let sinal = ''
 
-let finalResult = 0
-
 let parcialResult = 0
+
+let finalResult = 0
 
 function calculate(num = []) {
 
@@ -43,15 +41,17 @@ function getOperator(operator) {
 
     sinal = operator
 
-    if (parcialResult == '') {
+    if (numbersCalc == '') {
 
         numbersCalc.push(Number(visor.value))
-
-        console.log(numbersCalc)
 
         visor.value = ''
 
     }else {
+
+        numbersCalc.push(Number(visor.value))
+        
+        parcialResult = calculate(numbersCalc)
 
         visor.value = ''
         numbersCalc = []
@@ -62,56 +62,14 @@ function getOperator(operator) {
 
 function getNumber(num) {
 
-    numbersVisor.push(Number(num))
+    visor.value += num
 
-    if (numbersVisor.lastIndexOf(num)) {
-
-        visor.value += num
-
-    }
-
-    if (sinal != '') {
-
-        numbersCalc.push(Number(visor.value))
-
-        console.log(numbersCalc)
-
-        if (parcialResult == '') {
-
-            parcialResult = calculate(numbersCalc)
-
-            console.log(parcialResult)
-
-            numbersCalc = []
-        
-        }else {
-        
-            let lastNumber = numbersCalc.pop()
-        
-            numbersCalc = []
-        
-            numbersCalc.push(parcialResult)
-        
-            numbersCalc.push(lastNumber)
-        
-            parcialResult = calculate(numbersCalc)
-
-            console.log(parcialResult)
-
-            numbersCalc = []
-        
-        }
-   
-
-    }
-    
 }
 
 function deleteNumber() {
 
     visor.value = ''
     sinal = ''
-    numbersVisor = []
     numbersCalc = []
     finalResult = 0
     parcialResult = 0
@@ -120,11 +78,26 @@ function deleteNumber() {
 
 function equality() {
 
+    if (parcialResult != '') {
+
+        numbersCalc.push(parcialResult)
+
+        numbersCalc.push(Number(visor.value))
+
+        parcialResult = calculate(numbersCalc)
+
+    }else {
+
+        numbersCalc.push(Number(visor.value))
+
+        parcialResult = calculate(numbersCalc)
+
+    }
+
     finalResult = parcialResult
 
     visor.value = finalResult
 
-    numbersVisor = []
     numbersCalc = []
     parcialResult = 0
     finalResult = 0
