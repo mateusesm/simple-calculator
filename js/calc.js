@@ -12,9 +12,9 @@ function calculate(num = []) {
 
     let result = 0
 
-    if (sinal != '') {
+    if (sinal != '' && num != '') {
 
-        if (sinal.length > 1) {
+        if (sinal.length == 2) {
 
             switch (sinal[0]) {
 
@@ -64,11 +64,15 @@ function calculate(num = []) {
     
             }
 
+        } else {
+
+            sinal = []
+
         }
 
-        return result
-
     }
+
+    return result
 
 }
 
@@ -76,20 +80,31 @@ function getOperator(operator) {
 
     sinal.push(operator)
 
-    if (numbersCalc == '') {
-
-        numbersCalc.push(Number(visor.value))
+    if ((visor.value === Infinity || visor.value === NaN) || (numbersCalc === Infinity || numbersCalc === NaN) || (parcialResult === Infinity || parcialResult === NaN)) {
 
         visor.value = ''
-
-    }else {
-
-        numbersCalc.push(Number(visor.value))
-        
-        parcialResult = calculate(numbersCalc)
-
-        visor.value = parcialResult
         numbersCalc = []
+        parcialResult = 0
+        sinal = []
+
+    } else {
+
+        if (numbersCalc == '') {
+
+            numbersCalc.push(Number(visor.value))
+        
+            visor.value = ''
+
+        } else {
+
+            numbersCalc.push(Number(visor.value))
+                
+            parcialResult = calculate(numbersCalc)
+            
+            visor.value = parcialResult
+            numbersCalc = []
+
+        }
 
     }
 
@@ -97,7 +112,7 @@ function getOperator(operator) {
 
 function getNumber(num) {
 
-   if (sinal != '' && visor.value == parcialResult) {
+   if ((sinal != '' && visor.value != '' && parcialResult != '') && (visor.value == parcialResult)) {
 
         visor.value = ''
 
@@ -119,29 +134,55 @@ function deleteNumber() {
 
 function equality() {
 
-    if (parcialResult != '') {
+    if (sinal == '') {
 
-        numbersCalc.push(parcialResult)
+        visor.value = visor.value
 
-        numbersCalc.push(Number(visor.value))
+    } else {
 
-        parcialResult = calculate(numbersCalc)
+        if ((visor.value === Infinity || visor.value === NaN) && (numbersCalc === Infinity || numbersCalc === NaN) && (parcialResult === Infinity || parcialResult === NaN)) {
 
-    }else {
+            numbersCalc = []
+            parcialResult = 0
+            sinal = []
 
-        numbersCalc.push(Number(visor.value))
+        } else {
 
-        parcialResult = calculate(numbersCalc)
+            if (parcialResult != '') {
 
-    }
+                numbersCalc.push(parcialResult)
 
-    finalResult = parcialResult
+                numbersCalc.push(Number(visor.value))
 
-    visor.value = finalResult
+                parcialResult = calculate(numbersCalc)
 
-    numbersCalc = []
-    sinal = []
-    parcialResult = 0
-    finalResult = 0
-   
+            } else {
+
+                if (visor.value == '') {
+
+                    parcialResult = numbersCalc[0]
+
+                } else {
+
+                    numbersCalc.push(Number(visor.value))
+
+                    parcialResult = calculate(numbersCalc)
+
+                }
+
+            }
+
+        }
+
+        finalResult = parcialResult
+
+        visor.value = finalResult
+
+        numbersCalc = []
+        sinal = []
+        parcialResult = 0
+        finalResult = 0
+
+    } 
+ 
 }
