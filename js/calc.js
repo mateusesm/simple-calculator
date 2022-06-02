@@ -121,13 +121,9 @@ function equality() {
 
     if (parcialResult != '') {
 
-        console.log(sinal)
-
         numbersCalc.push(parcialResult)
 
         numbersCalc.push(Number(visor.value))
-
-        console.log(numbersCalc)
 
         parcialResult = calculate(numbersCalc)
 
