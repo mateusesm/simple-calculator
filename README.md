@@ -1,2 +1,2 @@
 # project-calc
- Projeto de calculadora simples usando HTML, CSS e JavaScript.
+ Calculadora simples usando HTML, CSS e JavaScript.
