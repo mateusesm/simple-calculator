@@ -4,7 +4,7 @@ Simple calculator made only with HTML, CSS and JavaScript.
 
 #### Below it's a image:
 
-![Pokedex empty](./project-images/calc.png)
+![Simple calculator](./project-images/calc.png)
 
 Download this repository and open file index.html in your browser from your preference for to see the project.
 
