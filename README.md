@@ -2,7 +2,7 @@
 
 Simple calculator made only with HTML, CSS and JavaScript.
 
-#### Below this is a image:
+#### Below it's a image:
 
 ![Pokedex empty](./project-images/calc.png)
 
